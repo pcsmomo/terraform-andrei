@@ -67,4 +67,8 @@ resource "aws_instance" "server" {
 > e.g, Terraform for deploying all underlying infrastructure such as network topology, databases, load balancers and servers\
 > and use Ansible for apps and configurations
 
+### 13. Creating an IAM User
+
+Create an IAM user on my AWS and as well as an access key
+
 </details>
