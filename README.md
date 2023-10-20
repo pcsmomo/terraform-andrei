@@ -4,6 +4,9 @@ DevOps Bootcamp: Terraform by Andrei Dumitrescu, Andrei Neagoie
 
 ## Folder structure
 
+- 03-master_terraform
+  - Section 3: Provisioning AWS Infrastructure with Terraform
+
 # Details
 
 <details open>
@@ -70,5 +73,17 @@ resource "aws_instance" "server" {
 ### 13. Creating an IAM User
 
 Create an IAM user on my AWS and as well as an access key
+
+## Section 3: Provisioning AWS Infrastructure with Terraform
+
+### 17. Terraform Code Structure
+
+```sh
+mkdir 03-master-terraform
+cd 03-master-terraform
+mkdir 01-aws
+cd 01-aws
+touch main.tf
+```
 
 </details>
