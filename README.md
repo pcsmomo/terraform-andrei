@@ -74,6 +74,8 @@ resource "aws_instance" "server" {
 
 Create an IAM user on my AWS and as well as an access key
 
+- username: terraform
+
 ## Section 3: Provisioning AWS Infrastructure with Terraform
 
 ### 17. Terraform Code Structure
@@ -85,5 +87,9 @@ mkdir 01-aws
 cd 01-aws
 touch main.tf
 ```
+
+### 18. Terraform Providers
+
+[Terraform Documentation: AWS provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 
 </details>
