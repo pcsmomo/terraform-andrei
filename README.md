@@ -183,4 +183,26 @@ terraform
 #   -version      An alias for the "version" subcommand.
 ```
 
+### 21. Authenticating to AWS
+
+two ways to set credentials
+
+#### in main.tf file
+
+```js
+provider "aws" {
+  region = "ap-southeast-2"
+  access_key = ""
+  secret_key = ""
+}
+```
+
+#### use environment variables
+
+```sh
+export AWS_ACCESS_KEY_ID=""
+export AWS_SECRET_ACCESS_KEY=""
+export AWS_DEFAULT_REGION="ap-southeast-2"
+```
+
 </details>
