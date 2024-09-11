@@ -70,6 +70,22 @@ resource "aws_instance" "server" {
 > e.g, Terraform for deploying all underlying infrastructure such as network topology, databases, load balancers and servers\
 > and use Ansible for apps and configurations
 
+### 8. Installing Terraform on Linux and macOS
+
+[Install Terraform - Homebrew](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+```sh
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+```
+
+#### To update
+
+```sh
+brew update
+brew upgrade hashicorp/tap/terraform
+```
+
 ### 13. Creating an IAM User
 
 Create an IAM user on my AWS and as well as an access key
@@ -203,6 +219,18 @@ provider "aws" {
 export AWS_ACCESS_KEY_ID=""
 export AWS_SECRET_ACCESS_KEY=""
 export AWS_DEFAULT_REGION="ap-southeast-2"
+```
+
+### 22. Creating Resources (Part1): AWS VPC
+
+terraform syntax
+
+```tf
+resource "<provider>_<resource_type>>" "local_name" {
+  argument1 = value1
+  argument2 = value2
+  ...
+}
 ```
 
 </details>
