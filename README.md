@@ -223,7 +223,7 @@ export AWS_DEFAULT_REGION="ap-southeast-2"
 
 ### 22. Creating Resources (Part1): AWS VPC
 
-terraform syntax
+Terraform Basic Syntax
 
 ```tf
 resource "<provider>_<resource_type>>" "local_name" {
@@ -232,5 +232,123 @@ resource "<provider>_<resource_type>>" "local_name" {
   ...
 }
 ```
+
+### 23. Terraform Plan and Apply
+
+Terraform Workflow
+
+1. Write : wirte in `.tf`
+2. Plan : to preview the changes
+3. Apply
+
+#### Plan
+
+```sh
+# ./01-aws
+01-aws % terraform plan
+
+# Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+#   + create
+
+# Terraform will perform the following actions:
+
+#   # aws_vpc.main will be created
+#   + resource "aws_vpc" "main" {
+#       + arn                                  = (known after apply)
+#       + cidr_block                           = "10.0.0.0/16"
+#       + default_network_acl_id               = (known after apply)
+#       + default_route_table_id               = (known after apply)
+#       + default_security_group_id            = (known after apply)
+#       + dhcp_options_id                      = (known after apply)
+#       + enable_classiclink                   = (known after apply)
+#       + enable_classiclink_dns_support       = (known after apply)
+#       + enable_dns_hostnames                 = (known after apply)
+#       + enable_dns_support                   = true
+#       + id                                   = (known after apply)
+#       + instance_tenancy                     = "default"
+#       + ipv6_association_id                  = (known after apply)
+#       + ipv6_cidr_block                      = (known after apply)
+#       + ipv6_cidr_block_network_border_group = (known after apply)
+#       + main_route_table_id                  = (known after apply)
+#       + owner_id                             = (known after apply)
+#       + tags                                 = {
+#           + "Name" = "Main VPC"
+#         }
+#       + tags_all                             = {
+#           + "Name" = "Main VPC"
+#         }
+#     }
+
+# Plan: 1 to add, 0 to change, 0 to destroy.
+```
+
+#### Apply
+
+```sh
+01-aws % terraform apply
+
+# Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+#   + create
+
+# Terraform will perform the following actions:
+
+#   # aws_vpc.main will be created
+#   + resource "aws_vpc" "main" {
+#       + arn                                  = (known after apply)
+#       + cidr_block                           = "10.0.0.0/16"
+#       + default_network_acl_id               = (known after apply)
+#       + default_route_table_id               = (known after apply)
+#       + default_security_group_id            = (known after apply)
+#       + dhcp_options_id                      = (known after apply)
+#       + enable_classiclink                   = (known after apply)
+#       + enable_classiclink_dns_support       = (known after apply)
+#       + enable_dns_hostnames                 = (known after apply)
+#       + enable_dns_support                   = true
+#       + id                                   = (known after apply)
+#       + instance_tenancy                     = "default"
+#       + ipv6_association_id                  = (known after apply)
+#       + ipv6_cidr_block                      = (known after apply)
+#       + ipv6_cidr_block_network_border_group = (known after apply)
+#       + main_route_table_id                  = (known after apply)
+#       + owner_id                             = (known after apply)
+#       + tags                                 = {
+#           + "Name" = "Main VPC"
+#         }
+#       + tags_all                             = {
+#           + "Name" = "Main VPC"
+#         }
+#     }
+
+# Plan: 1 to add, 0 to change, 0 to destroy.
+
+# Do you want to perform these actions?
+#   Terraform will perform the actions described above.
+#   Only 'yes' will be accepted to approve.
+
+#   Enter a value: yes
+
+# aws_vpc.main: Creating...
+# aws_vpc.main: Creation complete after 2s [id=vpc-0cc29a264819d771c]
+
+# Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+```
+
+Delete the VPC manually on the web console and try it again
+
+```sh
+# Save the plan to `tfplan` file.
+terraform plan -out=tfplan
+```
+
+```sh
+terraform apply "tfplan"
+
+# aws_vpc.main: Creating...
+# aws_vpc.main: Creation complete after 2s [id=vpc-075ba35c921a1accd]
+
+# Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+```
+
+When VPC is created, `Main route table` and `Main network ACL` will be created as well
 
 </details>
